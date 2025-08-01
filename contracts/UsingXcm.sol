@@ -10,4 +10,10 @@ contract UsingXcm {
         IXcm.Weight memory weight = xcm.weighMessage(message);
         xcm.execute(message, weight);
     }
+
+    event FundsReceived(address indexed sender, uint256 amount);
+
+    receive() external payable {
+        emit FundsReceived(msg.sender, msg.value);
+    }
 }
