@@ -1,0 +1,33 @@
+[package]
+name = "ink_library"
+version = "0.1.0"
+authors = ["[your_name] <[your_email]>"]
+edition = "2021"
+
+[dependencies]
+ink = { git = "https://github.com/use-ink/ink", branch = "master", default-features = false, features = ["unstable-hostfn"] }
+parity-scale-codec = { version = "3.7.5", default-features = false }
+
+[dev-dependencies]
+ink_e2e = { git = "https://github.com/use-ink/ink", branch = "master" }
+
+[lib]
+path = "lib.rs"
+
+[features]
+default = ["std"]
+std = [
+    "ink/std",
+    "parity-scale-codec/std",
+]
+ink-as-dependency = []
+e2e-tests = []
+
+[package.metadata.ink-lang]
+abi = "sol"
+
+[lints.rust.unexpected_cfgs]
+level = "warn"
+check-cfg = [
+    'cfg(ink_abi, values("ink", "sol", "all"))'
+]

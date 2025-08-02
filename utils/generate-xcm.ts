@@ -4,6 +4,8 @@ import { Binary, Enum, FixedSizeBinary, getTypedCodecs } from "polkadot-api";
 const PAS_UNITS = 10_000_000_000n;
 const PAS_CENTS = 100_000_000n;
 
+const ACCOUNT = "14uWAHq7bSbj7d5yn4N7oZYdDEaNxcUgAqqVF2MZiGuv3mNN";
+
 async function createTeleport(paraId: number, beneficiary: FixedSizeBinary<32>): Promise<string> {
   const xcm = XcmVersionedXcm.V5([
     XcmV5Instruction.WithdrawAsset([
@@ -53,7 +55,7 @@ async function createTeleport(paraId: number, beneficiary: FixedSizeBinary<32>):
   return xcmHex;
 }
 
-createTeleport(1000, FixedSizeBinary.fromAccountId32('14uWAHq7bSbj7d5yn4N7oZYdDEaNxcUgAqqVF2MZiGuv3mNN'))
+createTeleport(1000, FixedSizeBinary.fromAccountId32(ACCOUNT))
   .then((result) => {
     console.log(result);
   })
