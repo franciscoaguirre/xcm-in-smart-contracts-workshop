@@ -2,3 +2,4 @@ node_modules
 ignition/deployments
 cache-pvm
 artifacts-pvm
+*.sqlite*

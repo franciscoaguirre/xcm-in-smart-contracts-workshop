@@ -1,0 +1,15 @@
+endpoint: wss://testnet-passet-hub.polkadot.io
+mock-signature-host: true
+block: ${env.PASSET_HUB_BLOCK_NUMBER}
+db: ./passet-hub-db.sqlite
+runtime-log-level: 5
+wasm-override: ../runtimes/passet-hub-runtime-1018007.wasm
+
+import-storage:
+  System:
+    Account:
+      -
+        -
+          - 5EHjxaM17ioFvhKvccngRehKR2ztC6Y9iNpf8aYSstErMcFx # Contract address: 0x6269bB8bC8d0Ac843783a305F86ec7613cD2A2D9
+        - data:
+            free: '10000000000000000000'

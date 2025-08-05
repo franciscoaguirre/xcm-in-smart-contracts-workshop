@@ -1,0 +1,6 @@
+endpoint: wss://paseo-rpc.dwellir.com
+mock-signature-host: true
+block: ${env.PASEO_BLOCK_NUMBER}
+db: ./relay-db.sqlite
+runtime-log-level: 5
+wasm-override: ../runtimes/paseo-runtime-1006000.wasm

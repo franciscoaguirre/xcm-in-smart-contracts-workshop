@@ -13,13 +13,11 @@ module.exports = {
   networks: {
     hardhat: {
       polkavm: true,
-      nodeConfig: {
-        nodeBinaryPath: 'INSERT_PATH_TO_SUBSTRATE_NODE',
-        rpcPort: 8000,
-        dev: true,
+      forking: {
+        url: 'https://testnet-passet-hub.polkadot.io',
       },
       adapterConfig: {
-        adapterBinaryPath: 'INSERT_PATH_TO_ETH_RPC_ADAPTER',
+        adapterBinaryPath: 'bin/eth-rpc',
         dev: true,
       },
     },
